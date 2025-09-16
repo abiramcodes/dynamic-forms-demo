@@ -1,0 +1,27 @@
+:host {
+  .dynamic-forms {
+    &-container {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      height: 91.75dvh;
+    }
+
+    &-left {
+      @extend .container-padding;
+      border-right: 1px solid black;
+
+      button {
+        float: right;
+      }
+    }
+
+    &-right {
+      @extend .container-padding;
+      border-left: 1px solid black;
+    }
+  }
+
+  .container-padding {
+    padding: 1rem;
+  }
+}

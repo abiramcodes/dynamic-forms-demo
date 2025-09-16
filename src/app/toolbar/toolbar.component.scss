@@ -1,0 +1,12 @@
+:host {
+  mat-toolbar {
+    background: #90c9ff;
+    color: #09457c;
+  }
+  .toolbar-container {
+    display: flex;
+    width: inherit;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
