@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormsService } from './services/dynamic-forms.service';
 import { MatButtonModule } from '@angular/material/button';
 import { mapValidators } from './utils/dynamic-forms.utils';
-import { FORM_CONFIG } from './mocks/forms';
+import { FORM_CONFIG } from './mocks/forms.mocks';
 
 @Component({
   selector: 'app-dynamic-forms',
