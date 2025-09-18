@@ -1,6 +1,23 @@
 <div class="dynamic-forms-container">
   <div class="dynamic-forms-left">
-    <button matButton="filled" (click)="loadForm()">Load Form</button>
+    <button matButton="filled" (click)="loadForm()">
+      {{ isFormLoaded() ? "Hide Form" : "Load Form" }}
+    </button>
+    @if (isFormLoaded()) {
+    <div class="form-container">
+      <form [formGroup]="form">
+        @for (field of config(); track $index; let i = $index) {
+        <ng-container
+          [ngComponentOutlet]="fieldComponents[i] | async"
+          [ngComponentOutletInputs]="{
+            field: field,
+            control: form.controls[field.name]
+          }"
+        ></ng-container>
+        }
+      </form>
+    </div>
+    }
   </div>
   <div class="dynamic-forms-right">
     <h4>Form Value :</h4>
