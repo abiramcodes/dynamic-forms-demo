@@ -1,5 +1,5 @@
 import { JsonPipe } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,6 @@ import { FormGroup } from '@angular/forms';
     <pre>{{ form().value | json }}</pre>
     }
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DisplayFormsComponent {
   form = input.required<FormGroup>();

@@ -17,7 +17,7 @@ export class DynamicFormsService {
         case 'input':
           this.cmpMap.set(
             fieldType,
-            import('./../components/input/input.component').then(
+            import('../components/controls/input.component').then(
               (c) => c.InputComponent
             )
           );
@@ -25,7 +25,7 @@ export class DynamicFormsService {
         case 'checkbox':
           this.cmpMap.set(
             fieldType,
-            import('./../components/checkbox/checkbox.component').then(
+            import('../components/controls/checkbox.component').then(
               (c) => c.CheckboxComponent
             )
           );
@@ -33,7 +33,7 @@ export class DynamicFormsService {
         case 'select':
           this.cmpMap.set(
             fieldType,
-            import('./../components/select/select.component').then(
+            import('../components/controls/select.component').then(
               (c) => c.SelectComponent
             )
           );

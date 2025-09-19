@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FORM_CONFIG } from '../../mocks/forms.mocks';
 import { DynamicFormsService } from '../../services/dynamic-forms.service';
 import { mapValidators } from '../../utils/dynamic-forms.utils';
+import { FieldConfig } from '../../model/forms';
 
 @Component({
   selector: 'app-df-version02',
@@ -16,7 +17,7 @@ export class DfVersion02Component {
   private readonly fb = inject(FormBuilder);
   private readonly dynamicFormsService = inject(DynamicFormsService);
 
-  protected readonly config = signal(FORM_CONFIG);
+  protected config = signal<FieldConfig[] | null>(null);
   protected isFormLoaded = signal(false);
   protected form!: FormGroup;
   protected fieldComponents: Promise<Type<unknown>>[] = [];
@@ -32,7 +33,7 @@ export class DfVersion02Component {
 
   private getDynamicForm(): void {
     const group: Record<string, any[]> = {};
-    this.config().forEach((field, index) => {
+    this.config()!.forEach((field, index) => {
       group[field.name] = ['', mapValidators(field.validators)];
       this.fieldComponents[index] =
         this.dynamicFormsService.lazyLoadForms(field);

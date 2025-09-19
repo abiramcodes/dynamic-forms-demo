@@ -8,6 +8,4 @@ import { DynamicFormsComponent } from './dynamic-forms/dynamic-forms.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class App {
-  protected readonly title = signal('dynamic-forms-demo');
-}
+export class App {}

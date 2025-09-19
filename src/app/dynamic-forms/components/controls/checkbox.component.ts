@@ -1,18 +1,22 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CheckboxField } from '../../model/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { BaseControl } from '../../utils/base-control.utils';
 
 @Component({
   selector: 'app-checkbox',
   imports: [ReactiveFormsModule, MatCheckboxModule],
   template: `
-    <mat-checkbox [formControl]="control()">{{ field().label }}</mat-checkbox>
+    <ng-container [formGroup]="formGroup">
+      <mat-checkbox [formControlName]="controlName()">{{
+        field().label
+      }}</mat-checkbox>
+    </ng-container>
   `,
-  styleUrl: './checkbox.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CheckboxComponent {
+export class CheckboxComponent extends BaseControl {
   field = input.required<CheckboxField>();
-  control = input.required<FormControl>();
+  controlName = input.required<string>();
 }

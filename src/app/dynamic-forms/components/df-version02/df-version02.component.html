@@ -11,7 +11,7 @@
           [ngComponentOutlet]="fieldComponents[i] | async"
           [ngComponentOutletInputs]="{
             field: field,
-            control: form.controls[field.name]
+            controlName: field.name
           }"
         ></ng-container>
         }

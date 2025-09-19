@@ -8,20 +8,11 @@
       <form [formGroup]="form">
         @for (field of config(); track $index; let i = $index) {
         @switch(field.type){ @case ('input') {
-        <app-input
-          [field]="field"
-          [control]="form | formControl : field.name"
-        />
+        <app-input [field]="field" [controlName]="field.name" />
         } @case ('select') {
-        <app-select
-          [field]="field"
-          [control]="form | formControl : field.name"
-        />
+        <app-select [field]="field" [controlName]="field.name" />
         } @case ('checkbox') {
-        <app-checkbox
-          [field]="field"
-          [control]="form | formControl : field.name"
-        />
+        <app-checkbox [field]="field" [controlName]="field.name" />
         } } }
       </form>
     </div>
