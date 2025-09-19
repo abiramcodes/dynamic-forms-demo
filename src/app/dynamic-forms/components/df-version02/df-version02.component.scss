@@ -1,0 +1,40 @@
+:host {
+  button {
+    float: right;
+  }
+
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .dynamic-forms {
+    &-container {
+      display: grid;
+      grid-template-columns: 1.75fr 1fr;
+      height: 91.75dvh;
+    }
+
+    &-left {
+      @extend .container-padding;
+      border-right: 1px solid black;
+    }
+
+    &-right {
+      @extend .container-padding;
+      border-left: 1px solid black;
+    }
+  }
+
+  .container-padding {
+    padding: 1rem;
+  }
+}

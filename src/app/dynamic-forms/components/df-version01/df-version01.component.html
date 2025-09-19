@@ -1,0 +1,39 @@
+<div class="dynamic-forms-container">
+  <div class="dynamic-forms-left">
+    <button matButton="filled" (click)="loadForm()">
+      {{ isFormLoaded() ? "Hide Form V1" : "Load Form V1" }}
+    </button>
+    @if (isFormLoaded()) {
+    <div class="form-container">
+      <form [formGroup]="form">
+        @for (field of config(); track $index; let i = $index) {
+        @switch(field.type){ @case ('input') {
+        <app-input
+          [field]="field"
+          [control]="form | formControl : field.name"
+        />
+        } @case ('select') {
+        <app-select
+          [field]="field"
+          [control]="form | formControl : field.name"
+        />
+        } @case ('checkbox') {
+        <app-checkbox
+          [field]="field"
+          [control]="form | formControl : field.name"
+        />
+        } } }
+      </form>
+    </div>
+    }
+  </div>
+  <div class="dynamic-forms-right">
+    <ng-container
+      [ngComponentOutlet]="displayForm | async"
+      [ngComponentOutletInputs]="{
+        form,
+        showForm: isFormLoaded()
+      }"
+    ></ng-container>
+  </div>
+</div>

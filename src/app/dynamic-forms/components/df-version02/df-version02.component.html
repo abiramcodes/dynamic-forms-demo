@@ -1,7 +1,7 @@
 <div class="dynamic-forms-container">
   <div class="dynamic-forms-left">
     <button matButton="filled" (click)="loadForm()">
-      {{ isFormLoaded() ? "Hide Form" : "Load Form" }}
+      {{ isFormLoaded() ? "Hide Form V2" : "Load Form V2" }}
     </button>
     @if (isFormLoaded()) {
     <div class="form-container">
@@ -20,7 +20,12 @@
     }
   </div>
   <div class="dynamic-forms-right">
-    <h4>Form Value :</h4>
-    <pre>{{ form.value | json }}</pre>
+    <ng-container
+      [ngComponentOutlet]="displayForm | async"
+      [ngComponentOutletInputs]="{
+        form,
+        showForm: isFormLoaded()
+      }"
+    ></ng-container>
   </div>
 </div>

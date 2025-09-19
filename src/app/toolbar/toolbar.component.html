@@ -1,6 +1,14 @@
 <mat-toolbar>
   <div class="toolbar-container">
-    <span>Dynamic Forms Demo</span>
+    <span (click)="navigateToRoute('home')">Dynamic Forms Demo</span>
+    <div>
+      <button matButton="elevated" (click)="navigateToRoute('v1')">
+        Version 01
+      </button>
+      <button matButton="elevated" (click)="navigateToRoute('v2')">
+        Version 02
+      </button>
+    </div>
     <span
       >Ng-India-
       <strong> Chennai </strong>

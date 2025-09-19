@@ -8,5 +8,14 @@
     width: inherit;
     justify-content: space-between;
     align-items: center;
+
+    span {
+      cursor: pointer;
+    }
+
+    div {
+      display: flex;
+      gap: 1rem;
+    }
   }
 }

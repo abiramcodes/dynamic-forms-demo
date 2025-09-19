@@ -42,4 +42,11 @@ export class DynamicFormsService {
     }
     return this.cmpMap.get(fieldType) as Promise<Type<unknown>>;
   }
+
+  public async getDisplayForms(): Promise<Type<unknown>> {
+    const { DisplayFormsComponent } = await import(
+      './../components/display-forms/display-forms.component'
+    );
+    return DisplayFormsComponent;
+  }
 }
